@@ -69,6 +69,11 @@ func StatefulSet(sfs api.StatefulApp, podSpec *api.PodSpec, cr *api.PerconaXtraD
 			Spec: pod,
 		},
 	}
+	if sfs.Labels()["app.kubernetes.io/component"] == "pxc" {
+		obj.Spec.Template.SetFinalizers([]string{
+			"pxc.percona.com/shutdown.pod.gracefully",
+		})
+	}
 
 	if sfsVolume.PVCs != nil {
 		obj.Spec.VolumeClaimTemplates = sfsVolume.PVCs
