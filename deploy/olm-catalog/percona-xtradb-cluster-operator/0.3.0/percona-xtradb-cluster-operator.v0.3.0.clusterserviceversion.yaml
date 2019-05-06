@@ -68,7 +68,6 @@ spec:
     
     Below is a sample `secrets.yaml` file for the correct formatting.
     
-
     apiVersion: v1
     kind: Secret
     metadata:
