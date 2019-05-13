@@ -20,17 +20,17 @@ spec:
     owned:
     - kind: PerconaXtraDBCluster
       name: perconaxtradbclusters.pxc.percona.com
-      version: v1alpha1
+      version: v1
       displayName: PerconaXtraDBCluster
       description: Instance of a Percona XtraDB Cluster
     - kind: PerconaXtraDBClusterBackup
       name: perconaxtradbclusterbackups.pxc.percona.com
-      version: v1alpha1
+      version: v1
       displayName: PerconaXtraDBClusterBackup
       description: Instance of a Percona XtraDB Cluster Backup
     - kind: PerconaXtraDBClusterRestore
       name: perconaxtradbclusterrestores.pxc.percona.com
-      version: v1alpha1
+      version: v1
       displayName: PerconaXtraDBClusterRestore
       description: Instance of a Percona XtraDB Cluster Restore
     - kind: PerconaXtraDBBackup
