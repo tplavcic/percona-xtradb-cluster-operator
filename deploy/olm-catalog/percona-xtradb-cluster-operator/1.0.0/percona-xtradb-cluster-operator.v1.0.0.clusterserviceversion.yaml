@@ -236,7 +236,7 @@ spec:
               - securitycontextconstraints
             resourceNames:
               - anyuid
-            serviceAccountName: percona-xtradb-cluster-openshift-constraints
+          serviceAccountName: percona-xtradb-cluster-openshift-constraints
     strategy: deployment
   maturity: alpha
   provider:
