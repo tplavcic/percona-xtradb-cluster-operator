@@ -225,7 +225,7 @@ spec:
           - patch
           - delete
           - deletecollection
-        serviceAccountName: percona-xtradb-cluster-operator
+        serviceAccountName: default
       clusterPermissions:
         - rules:
           - verbs:
