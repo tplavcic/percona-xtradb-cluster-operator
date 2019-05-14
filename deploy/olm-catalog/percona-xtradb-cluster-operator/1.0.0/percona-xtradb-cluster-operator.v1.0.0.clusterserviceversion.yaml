@@ -2,14 +2,13 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: ClusterServiceVersion
 metadata:
   annotations:
-    alm-examples: '[{"apiVersion":"pxc.percona.com/v1","kind":"PerconaXtraDBCluster","metadata":{"finalizers":["delete-pxc-pods-in-order"],"name":"cluster1"},"spec":{"backup":{"image":"registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers:1.0.0-backup","schedule":[{"keep":5,"name":"sat-night-backup","schedule":"0
-      0 * * 6","storageName":"fs-pvc"}],"storages":{"fs-pvc":{"type":"filesystem","volume":{"persistentVolumeClaim":{"resources":{"requests":{"storage":"6Gi"}}}}}}},"pmm":{"enabled":false},"proxysql":{"enabled":true,"image":"registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers:1.0.0-proxysql","size":1,"volumeSpec":{"persistentVolumeClaim":{"resources":{"requests":{"storage":"1Gi"}}}}},"pxc":{"image":"registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers:1.0.0-pxc","size":3,"volumeSpec":{"persistentVolumeClaim":{"resources":{"requests":{"storage":"6Gi"}}}}},"secretsName":"my-cluster-secrets","sslInternalSecretName":"my-cluster-ssl-internal","sslSecretName":"my-cluster-ssl"}}]'
+    alm-examples: '[{"kind":"PerconaXtraDBCluster","spec":{"secretsName":"my-cluster-secrets","sslSecretName":"my-cluster-ssl","pmm":{"enabled":false},"pxc":{"size":3,"volumeSpec":{"persistentVolumeClaim":{"resources":{"requests":{"storage":"6Gi"}}}},"image":"registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers:1.0.0-pxc"},"backup":{"storages":{"fs-pvc":{"volume":{"persistentVolumeClaim":{"resources":{"requests":{"storage":"6Gi"}}}},"type":"filesystem"}},"image":"registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers:1.0.0-backup","schedule":[{"keep":5,"storageName":"fs-pvc","name":"sat-night-backup","schedule":"0 0 * * 6"}]},"sslInternalSecretName":"my-cluster-ssl-internal","proxysql":{"image":"registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers:1.0.0-proxysql","enabled":true,"volumeSpec":{"persistentVolumeClaim":{"resources":{"requests":{"storage":"1Gi"}}}},"size":1}},"apiVersion":"pxc.percona.com/v1","metadata":{"name":"cluster1","finalizers":["delete-pxc-pods-in-order"]}},{"apiVersion":"pxc.percona.com/v1","kind":"PerconaXtraDBClusterRestore","metadata":{"name":"restore1"},"spec":{"backupName":"backup1","pxcCluster":"cluster1"}},{"apiVersion":"pxc.percona.com/v1","kind":"PerconaXtraDBClusterBackup","metadata":{"name":"backup1"},"spec":{"pxcCluster":"cluster1","storageName":"fs-pvc"}},{"apiVersion":"pxc.percona.com/v1alpha1","kind":"PerconaXtraDBBackup","metadata":{"name":"backup1"},"spec":{"pxcCluster":"cluster1","storageName":"s3-us-west"}}]'
     categories: "Database"
     capabilities: Full Lifecycle
     certified: "true"
     support: Percona
     description: Percona XtraDB Cluster Operator manages the lifecycle of Percona XtraDB cluster instances.
-    containerImage: registry.connect.redhat.com/percona/percona-xtradb-cluster-operator:1.0.0
+    containerImage: registry.connect.redhat.com/percona/percona-xtradb-cluster-operator:v1.0.0
     createdAt: 2019-05-13T21:36:39Z
     repository: https://github.com/percona/percona-xtradb-cluster-operator
   name: percona-xtradb-cluster-operator.v1.0.0
@@ -130,7 +129,7 @@ spec:
                       fieldPath: metadata.namespace
                 - name: OPERATOR_NAME
                   value: percona-xtradb-cluster-operator
-                image: registry.connect.redhat.com/percona/percona-xtradb-cluster-operator:1.0.0
+                image: registry.connect.redhat.com/percona/percona-xtradb-cluster-operator:v1.0.0
                 imagePullPolicy: Always
                 name: percona-xtradb-cluster-operator
                 ports:
