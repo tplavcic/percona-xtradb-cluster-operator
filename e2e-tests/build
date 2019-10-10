@@ -24,21 +24,16 @@ build_operator() {
             cmd/manager/main.go
     "
 
-    dockerfile=build/Dockerfile
-    if [ "$RHEL" = "1" ]; then
-        dockerfile=build/Dockerfile.rhel
-    fi
-
     export IMAGE
     pushd ${src_dir}
         docker build \
             --squash \
             --no-cache \
-            -t "${IMAGE}" -f $dockerfile .
+            -t "${IMAGE}" -f build/Dockerfile .
     popd
-    if [ "$RHEL" != "1" ]; then
-        docker push ${IMAGE}
-    fi
+#    if [ "$RHEL" != "1" ]; then
+#        docker push ${IMAGE}
+#    fi
 }
 
 if [[ $BUILD = "0" ]]; then
