@@ -31,7 +31,7 @@ your network does not require another installation in Kubernetes.
 
    ::
 
-      $ helm install percona/pmm-server --name monitoring --set platform=openshift --set credentials.username=pmm --set "credentials.password=supa|^|pazz"
+      $ helm install monitoring-test percona/pmm-server --set platform=kubernetes --set credentials.username=pmm --set "credentials.password==supa|^|password"
 
    It is important to specify correct options in the installation
    command:
